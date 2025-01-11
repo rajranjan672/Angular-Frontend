@@ -1,5 +1,4 @@
 # Project/repo description
-
 This contains two folders
 1. frontend - For Angular project.
 2. Backend - For Node.js/backend project.

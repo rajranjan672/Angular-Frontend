@@ -6,6 +6,10 @@ import { RegisterComponent } from './register/register.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'tasks', pathMatch: 'full' }, //default route
+    // {
+    //     path: 'tasks',
+    //     loadChildren: () => import('./task/task.module').then(m => m.TaskModule)
+    //   },
     { path: 'tasks', component: TaskComponent },
     { path: 'users', component: UsersComponent },
     { path: 'login', component: LoginComponent },

@@ -6,7 +6,12 @@ const dotenv = require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
+
+app.use(cors({
+    // origin:'http://localhosst:3000', credentials:true
+    origin:'http://localhost:4200'
+
+}));
 
 app.use(bodyParser.json());
 

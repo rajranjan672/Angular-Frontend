@@ -1,5 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+/* Ensure that html and body take full height */
 html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
+}
+
+/* Apply background image to login page */
+.login-page {
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    background-image: url("./assets/login-bg.jpg");
+    background-size: cover; /* Ensure the background image covers the entire container */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Optional: Set body font for the rest of the app */
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }

@@ -1,1 +1,129 @@
-<p>task works!</p>
+<div class="container-fluid bg-secondary bg-gradient h-100">
+        <button type="button" class="btn btn-primary mx-2 my-3" (click)="open(content)">
+            New Task
+         </button>
+
+  
+  <ng-template #content let-modal>
+    <div class="justify-content-center align-item-center">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Modal title</h1>
+        <button
+          type="button"
+          class="btn-close"
+          (click)="modal.dismiss()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- plans.component.html -->
+        <form (submit)="addTask()">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              [(ngModel)]="title"
+              name="title"
+              id="title"
+              class="form-control"
+              required
+            />
+            <label for="title">Title</label>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea
+              [(ngModel)]="description"
+              name="description"
+              id="description"
+              class="form-control"
+              required
+            ></textarea>
+            <label for="description">Description</label>
+          </div>
+          <label for="status">Status</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="completedStatus" name="status" value="Completed" [(ngModel)]="status" />
+            <label class="form-check-label" for="completedStatus">
+              Completed
+            </label>
+          </div>
+          
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="pendingStatus" name="status" value="Pending" [(ngModel)]="status" />
+            <label class="form-check-label" for="pendingStatus">
+              Pending
+            </label>
+          </div>
+          
+          
+          
+          <button type="submit" class="btn btn-primary ">Add Item</button>
+        </form>
+      </div>
+    </div>
+  </ng-template>
+
+
+<!-- Display Task List -->
+<div >
+    <h2 class="d-flex text-white justify-content-center">Task List</h2>
+    
+    <div class="row d-flex justify-content-start" *ngIf="tasks.length > 0; else noTasksMessage">
+      <div *ngFor="let task of tasks" class="card bg-dark bg-gradient text-white mx-3 mb-2 my-2 col-10 col-sm-4 col-md-2 col-lg-2 col-xl-3">
+        <h3 class="mx-auto text-uppercase"> {{ task.title }}</h3>
+        <p class="text-capitalize">Description: {{ task.description }}</p>
+        <p>Status: {{ task.status }}</p>
+
+        
+         <div class="py-2">
+            <i  (click)="deleteTask(task._id)" class="bi bi-trash-fill mx-1 fs-24" style="color: rgb(252, 5, 5);  cursor: pointer;"></i>
+            <i  (click)="openEditModal(task)" class="bi bi-pencil-fill mx-1" style="color: rgb(0, 255, 229);  cursor: pointer;"></i>
+     
+         </div>
+            
+        </div>
+    </div>
+
+    
+    <ng-template #editModal let-modal>
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Edit Item</h1>
+          <button type="button" class="btn-close" (click)="modal.dismiss()"></button>
+        </div>
+        <div class="modal-body" *ngIf="taskToEdit">
+          <form (ngSubmit)="updateTask()">
+            <div class="form-floating mb-3">
+              <input type="text" [(ngModel)]="taskToEdit.title" name="title" id="title" class="form-control" required />
+              <label for="title">Title</label>
+            </div>
+            <div class="form-floating mb-3">
+              <textarea [(ngModel)]="taskToEdit.description" name="description" id="description" class="form-control" required></textarea>
+              <label for="description">Description</label>
+            </div>
+
+            <label for="status">Status</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="completedStatus" name="status" value="Completed" [(ngModel)]="taskToEdit.status" />
+              <label class="form-check-label" for="completedStatus">
+                Completed
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="pendingStatus" name="status" value="Pending" [(ngModel)]="taskToEdit.status" />
+              <label class="form-check-label" for="pendingStatus">
+                Pending
+              </label>
+            </div>
+      
+            <button type="submit" class="btn btn-primary">Update Item</button>
+          </form>
+        </div>
+      </ng-template>
+      
+  
+    <ng-template #noTasksMessage>
+      <p>No tasks available. Please add some tasks.</p>
+    </ng-template>
+  </div>
+  
+  
+</div>
+  

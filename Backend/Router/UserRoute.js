@@ -46,7 +46,7 @@ router.post('/register',[
             id:user.id
         }
     }
-    const authtoken = await jwt.sign(dta, Process.env.JWT_SECRET);
+    const authtoken = await jwt.sign(dta, process.env.JWT_SECRET);
     success = true
       res.json({success , authtoken, secPassword}) 
  
@@ -83,7 +83,7 @@ router.post('/login',[
     }
   
 
-    const token = jwt.sign({id: user._id}, Process.env.JWT_SECRET, {
+    const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {
       expiresIn: "2h"
     })
     console.log(token)
@@ -107,7 +107,7 @@ router.post('/login',[
  const verifyToken = async(req, res, next) => {
   const token = req.cookies.access_token;
 
-    jwt.verify((token), Process.env.JWT_SECRET, (err, user) => {
+    jwt.verify((token), process.env.JWT_SECRET, (err, user) => {
       if(err) {
         return res.status(400).json({message: "Invalid token"})
       }

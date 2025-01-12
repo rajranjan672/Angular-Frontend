@@ -9,7 +9,7 @@ const app = express();
 
 app.use(cors({
     // origin:'http://localhosst:3000', credentials:true
-    origin:'http://localhost:4200'
+    origin:'http://localhost:4200', credentials: true
 
 }));
 

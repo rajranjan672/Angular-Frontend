@@ -89,7 +89,7 @@ export class TaskComponent {
           this.status = 'Active';  // Reset to default status
           this.loading = false;
           this.getTasks();
-          this.closeModal();  // Close modal after adding task
+          this.closeModal(); 
         },
         (error) => {
           console.error('Error adding task:', error);

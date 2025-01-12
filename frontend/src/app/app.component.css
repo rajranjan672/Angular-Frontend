@@ -1,0 +1,29 @@
+.profile-container {
+    position: fixed;
+    top: 20px;  /* Adjust to your preference */
+    right: 20px; /* Adjust to your preference */
+    z-index: 1000; /* Ensure it stays on top of other content */
+  }
+  
+  /* Optional: Style the dropdown icon */
+  .dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+    cursor: pointer;
+  }
+  
+  /* Optional: Hover effects for dropdown */
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 160px;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  

@@ -1,1 +1,15 @@
+<!-- Profile Icon with Dropdown -->
+<div class="profile-container">
+    <div class="dropdown">
+      <button class="btn btn-link dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-person-circle" style="font-size: 30px;"></i> <!-- Bootstrap profile icon -->
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+        <li><a class="dropdown-item" (click)="navigateToLogin()" style="cursor: pointer;">Login</a></li>
+        <li><a class="dropdown-item" (click)="navigateToRegister()" style="cursor: pointer;">Sign Up</a></li>
+      </ul>
+    </div>
+  </div>
+  
+
 <router-outlet></router-outlet>
